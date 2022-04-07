@@ -10,3 +10,14 @@ services:
     volumes:
       - "./conf/frp/frpc.ini:/frp/conf/frpc.ini"
     network_mode: host
+
+  frps:
+    restart: always
+    container_name: frps
+    image: frp
+    build:
+      context: frp
+      dockerfile: ../conf/frp/frps.Dockerfile
+    volumes:
+      - "./conf/frp/frps.ini:/frp/conf/frps.ini"
+    network_mode: host
