@@ -1,0 +1,12 @@
+version: "3"
+services:
+  frpc:
+    restart: always
+    container_name: frpc
+    image: frp
+    build:
+      context: frp
+      dockerfile: ../conf/frp/frpc.Dockerfile
+    volumes:
+      - "./conf/frp/frpc.ini:/frp/conf/frpc.ini"
+    network_mode: host
